@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drift</title>
+  <meta
+    name="description"
+    content="Drift helps you leave short-video feeds more gently with reminders and friction overlays.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f1e8;
+      --ink: #1f2b29;
+      --muted: #5f706b;
+      --line: rgba(54, 73, 66, 0.14);
+      --card: rgba(255, 252, 246, 0.88);
+      --accent: #3e6d5d;
+      --accent-strong: #2f574a;
+      --accent-soft: rgba(72, 114, 96, 0.12);
+      --shadow: 0 18px 60px rgba(33, 43, 41, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(216, 225, 214, 0.75), rgba(216, 225, 214, 0) 36%),
+        radial-gradient(circle at bottom right, rgba(236, 221, 196, 0.7), rgba(236, 221, 196, 0) 34%),
+        linear-gradient(180deg, #f8f4ec 0%, var(--bg) 100%);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-copy {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 16px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 8vw, 72px);
+      line-height: 0.94;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-subtitle {
+      max-width: 520px;
+      margin: 18px 0 0;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 15px;
+      transition: transform 140ms ease, background 140ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: var(--accent-strong);
+      border-color: var(--accent-strong);
+      color: #f8f5ef;
+    }
+
+    .button.secondary {
+      background: rgba(255, 252, 246, 0.6);
+      color: var(--ink);
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 253, 248, 0.9);
+      border: 1px solid var(--line);
+    }
+
+    .stat-label {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-value {
+      margin: 8px 0 0;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .card li + li {
+      margin-top: 8px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      padding: 22px 26px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-side,
+      .card,
+      .footer {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: clamp(36px, 14vw, 58px);
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <a class="brand" href="./">Drift</a>
+      <div class="nav-links">
+        <a href="./privacy-policy/">Privacy Policy</a>
+        <a href="mailto:blocknose313@gmail.com">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="panel hero-copy">
+        <p class="eyebrow">Break the scroll, gently.</p>
+        <h1>Drift</h1>
+        <p class="hero-subtitle">
+          Gentle reminders and friction overlays that help you leave short-video feeds a little more easily.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="./privacy-policy/">Read Privacy Policy</a>
+          <a class="button secondary" href="mailto:blocknose313@gmail.com">Contact</a>
+        </div>
+      </div>
+
+      <div class="panel hero-side">
+        <div class="stat">
+          <p class="stat-label">Positioning</p>
+          <p class="stat-value">Not a hard blocker. A gentler interruption.</p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">Boundary</p>
+          <p class="stat-value">Detects supported short-video pages and helps you leave the feed.</p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">Privacy</p>
+          <p class="stat-value">Runs on-device. Android system backup is disabled for first release.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel card">
+        <h2>How it works</h2>
+        <ul>
+          <li>Lets you watch for a while first.</li>
+          <li>Shows a reminder near your limit.</li>
+          <li>Escalates into friction if you keep going.</li>
+        </ul>
+      </article>
+
+      <article class="panel card">
+        <h2>What it uses</h2>
+        <ul>
+          <li>Accessibility for supported short-video page detection.</li>
+          <li>Foreground notifications and runtime safeguards for stability.</li>
+          <li>No promise to control every app or page.</li>
+        </ul>
+      </article>
+
+      <article class="panel card">
+        <h2>Need details?</h2>
+        <p>
+          If you are reviewing the app or need release-facing compliance information, the privacy policy is the public source of truth.
+        </p>
+        <p>
+          <a href="./privacy-policy/">Open the privacy policy.</a>
+        </p>
+      </article>
+    </section>
+
+    <footer class="panel footer">
+      <span>Drift</span>
+      <span>blocknose313@gmail.com</span>
+    </footer>
+  </div>
+</body>
+</html>
