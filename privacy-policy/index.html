@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drift Privacy Policy</title>
+  <meta
+    name="description"
+    content="Privacy Policy for Drift, an Android app that helps users reduce continuous short-video browsing.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f4ef;
+      --panel: #fffdf8;
+      --text: #21302a;
+      --muted: #63756c;
+      --line: #d8ddd6;
+      --accent: #4c7a62;
+      --accent-soft: #e6f0ea;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      background:
+        radial-gradient(circle at top left, #f0efe9 0, rgba(240, 239, 233, 0) 42%),
+        linear-gradient(180deg, #f7f4ed 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px 72px;
+    }
+
+    .hero {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 253, 248, 0.88);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 40px rgba(33, 48, 42, 0.06);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.08;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .updated {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--panel);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    p, ul {
+      margin: 0 0 14px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.95em;
+      padding: 0.1em 0.35em;
+      border-radius: 6px;
+      background: #f1f3ef;
+    }
+
+    .contact {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #f4f6f3;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow"><a href="../">Back to Drift</a></p>
+    <section class="hero">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>Drift Privacy Policy</h1>
+      <p class="subtitle">Drift is an Android app designed to help users reduce continuous short-video browsing through reminders and friction overlays.</p>
+      <p class="updated">Last updated: 2026-03-19</p>
+    </section>
+
+    <section class="section">
+      <h2>1. Summary</h2>
+      <ul>
+        <li><code>Drift</code> works primarily on your device.</li>
+        <li>The app does not currently upload your short-video page content, chat content, or account content to the developer.</li>
+        <li>The app uses Android accessibility access to identify supported short-video pages and support the leave flow you trigger inside the app.</li>
+        <li>Android system backup is disabled for the current first-release configuration.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>2. Information The App Processes</h2>
+      <p>The app may process the following categories of information on your device:</p>
+      <ul>
+        <li>current foreground app and page information needed to identify supported short-video contexts</li>
+        <li>your guard settings, including configured limits and selected supported apps</li>
+        <li>local usage and guard status records used to show history and runtime state inside the app</li>
+        <li>foreground notification state used while guarding is active</li>
+      </ul>
+      <p>This processing is used only for the app's short-video guard features.</p>
+    </section>
+
+    <section class="section">
+      <h2>3. Why Accessibility Access Is Used</h2>
+      <p><code>Drift</code> uses Android AccessibilityService only for these purposes:</p>
+      <ul>
+        <li>identify supported short-video pages</li>
+        <li>show reminders or friction overlays in those contexts</li>
+        <li>help perform a back action when you choose <code>退出</code></li>
+        <li>if you separately enable the optional <code>自动暂停视频</code> feature, attempt a single pause gesture when the overlay appears</li>
+      </ul>
+      <p>The app does not present accessibility access as a tool to control your whole phone or monitor unrelated content.</p>
+    </section>
+
+    <section class="section">
+      <h2>4. Data Sharing And Upload</h2>
+      <p>As of the current version reviewed for release:</p>
+      <ul>
+        <li>the app does not declare the Android <code>INTERNET</code> permission</li>
+        <li>the app does not intentionally upload your page content, chat content, account content, or local usage records to the developer</li>
+        <li>the app does not sell your personal data</li>
+      </ul>
+      <p>If a future version adds cloud features, analytics, crash reporting, or account systems, this policy must be updated before release.</p>
+    </section>
+
+    <section class="section">
+      <h2>5. Local Storage</h2>
+      <p>The app stores some information locally on your device so guarding can work, including:</p>
+      <ul>
+        <li>rules and guard preferences</li>
+        <li>supported app selections</li>
+        <li>local usage or guard history shown inside the app</li>
+        <li>runtime state needed to keep guarding stable</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>6. Android System Backup</h2>
+      <p>For the current first-release configuration, Android system backup is disabled.</p>
+    </section>
+
+    <section class="section">
+      <h2>7. Permissions</h2>
+      <p>The app may request the following Android permissions or accesses:</p>
+      <ul>
+        <li>Accessibility access, to identify supported short-video pages and support the leave flow</li>
+        <li>Notification permission, to show guard-related notifications</li>
+        <li>Foreground service permission, to keep guard-related reminders and overlays reliable while guarding is enabled</li>
+        <li>Battery optimization exemption or background-related settings, as optional stability enhancements on some devices</li>
+        <li>Boot completed access, to help restore guard-related behavior after device restart or app update when applicable</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>8. Your Choices</h2>
+      <p>You can:</p>
+      <ul>
+        <li>disable accessibility access in Android settings</li>
+        <li>disable notifications in Android settings</li>
+        <li>skip optional stability enhancement steps during onboarding</li>
+        <li>pause guarding inside the app</li>
+        <li>clear app storage or uninstall the app to remove locally stored app data from the device</li>
+      </ul>
+      <p>Disabling required access such as accessibility will limit or stop core guard features.</p>
+    </section>
+
+    <section class="section">
+      <h2>9. Children</h2>
+      <p><code>Drift</code> is not specifically directed to children.</p>
+    </section>
+
+    <section class="section">
+      <h2>10. Changes To This Policy</h2>
+      <p>This policy may be updated if the product's data practices change. The latest version should be made available before the updated version is distributed.</p>
+    </section>
+
+    <section class="section">
+      <h2>11. Contact</h2>
+      <div class="contact">
+        Contact:
+        <br>
+        <a href="mailto:blocknose313@gmail.com">blocknose313@gmail.com</a>
+      </div>
+      <p class="footer">This page is intended to be published through GitHub Pages for the app's Google Play privacy policy URL.</p>
+    </section>
+  </main>
+</body>
+</html>
