@@ -4,317 +4,172 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Drift</title>
-  <meta
-    name="description"
-    content="Drift helps you leave short-video feeds more gently with reminders and friction overlays.">
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f6f1e8;
-      --ink: #1f2b29;
-      --muted: #5f706b;
-      --line: rgba(54, 73, 66, 0.14);
-      --card: rgba(255, 252, 246, 0.88);
-      --accent: #3e6d5d;
-      --accent-strong: #2f574a;
-      --accent-soft: rgba(72, 114, 96, 0.12);
-      --shadow: 0 18px 60px rgba(33, 43, 41, 0.08);
+      --bg: #f5f2e9;
+      --card: rgba(255, 255, 255, 0.78);
+      --text: #21312b;
+      --muted: #5f7269;
+      --accent: #2f6d5d;
+      --line: rgba(33, 49, 43, 0.12);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-      color: var(--ink);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(216, 225, 214, 0.75), rgba(216, 225, 214, 0) 36%),
-        radial-gradient(circle at bottom right, rgba(236, 221, 196, 0.7), rgba(236, 221, 196, 0) 34%),
-        linear-gradient(180deg, #f8f4ec 0%, var(--bg) 100%);
-      line-height: 1.65;
+        radial-gradient(circle at top left, rgba(242, 214, 150, 0.35), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(116, 164, 146, 0.22), transparent 28%),
+        var(--bg);
+      min-height: 100vh;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .shell {
-      max-width: 1080px;
+    main {
+      max-width: 760px;
       margin: 0 auto;
-      padding: 28px 20px 72px;
+      padding: 64px 20px 80px;
     }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .brand {
-      font-size: 18px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--accent-strong);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: 28px;
+    .hero,
+    .section {
       background: var(--card);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 48px rgba(33, 49, 43, 0.08);
     }
 
-    .hero-copy {
-      padding: 34px;
-    }
+    .section { margin-top: 18px; }
 
     .eyebrow {
-      display: inline-block;
-      margin: 0 0 16px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 13px;
-      letter-spacing: 0.05em;
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(40px, 8vw, 72px);
-      line-height: 0.94;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-    }
-
-    .hero-subtitle {
-      max-width: 520px;
-      margin: 18px 0 0;
-      font-size: 20px;
+    h1, h2 { margin: 0 0 12px; }
+    h1 { font-size: clamp(36px, 7vw, 64px); line-height: 0.98; }
+    h2 { font-size: 22px; }
+    p {
+      margin: 0 0 14px;
       color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
     }
 
-    .hero-actions {
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    ol {
+      margin: 0;
+      padding-left: 22px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
       margin-top: 24px;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
+    a.button,
+    a.link {
+      display: inline-block;
+      text-decoration: none;
       border-radius: 999px;
-      border: 1px solid var(--line);
-      font-size: 15px;
-      transition: transform 140ms ease, background 140ms ease;
+      padding: 12px 18px;
+      font-weight: 600;
     }
 
-    .button:hover {
-      transform: translateY(-1px);
+    a.button {
+      color: #fff;
+      background: var(--accent);
     }
 
-    .button.primary {
-      background: var(--accent-strong);
-      border-color: var(--accent-strong);
-      color: #f8f5ef;
-    }
-
-    .button.secondary {
-      background: rgba(255, 252, 246, 0.6);
-      color: var(--ink);
-    }
-
-    .hero-side {
-      padding: 24px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .stat {
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255, 253, 248, 0.9);
-      border: 1px solid var(--line);
-    }
-
-    .stat-label {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .stat-value {
-      margin: 8px 0 0;
-      font-size: 24px;
-      line-height: 1.2;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 22px;
-    }
-
-    .card {
-      padding: 22px;
-    }
-
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      line-height: 1.15;
-    }
-
-    .card p,
-    .card li {
-      color: var(--muted);
-    }
-
-    .card ul {
-      margin: 12px 0 0;
-      padding-left: 18px;
-    }
-
-    .card li + li {
-      margin-top: 8px;
+    a.link {
+      color: var(--accent);
+      background: rgba(47, 109, 93, 0.1);
     }
 
     .footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-      padding: 22px 26px;
-      color: var(--muted);
+      margin-top: 18px;
       font-size: 14px;
+      color: var(--muted);
     }
 
-    @media (max-width: 860px) {
-      .hero,
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    .note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(47, 109, 93, 0.08);
+      color: var(--text);
+    }
 
-      .hero-copy,
-      .hero-side,
-      .card,
-      .footer {
-        padding: 22px;
-      }
-
-      h1 {
-        font-size: clamp(36px, 14vw, 58px);
-      }
-
-      .hero-subtitle {
-        font-size: 18px;
-      }
+    .tiny {
+      margin-top: 12px;
+      font-size: 15px;
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <nav class="nav">
-      <a class="brand" href="./">Drift</a>
-      <div class="nav-links">
-        <a href="./privacy-policy/">Privacy Policy</a>
-        <a href="mailto:blocknose313@gmail.com">Contact</a>
-      </div>
-    </nav>
-
+  <main>
     <section class="hero">
-      <div class="panel hero-copy">
-        <p class="eyebrow">Break the scroll, gently.</p>
-        <h1>Drift</h1>
-        <p class="hero-subtitle">
-          Gentle reminders and friction overlays that help you leave short-video feeds a little more easily.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="./privacy-policy/">Read Privacy Policy</a>
-          <a class="button secondary" href="mailto:blocknose313@gmail.com">Contact</a>
-        </div>
+      <p class="eyebrow">Drift</p>
+      <h1>Break the scroll, gently.</h1>
+      <p>Drift is an Android app for stepping away from short-video feeds with gentle reminders and staged friction, not hard blocking.</p>
+      <p>Core short-video detection and leave-flow handling run on-device. The current release may also send limited product analytics so the app can be improved.</p>
+      <div class="actions">
+        <a class="button" href="https://groups.google.com/g/drift-app">Join Closed Testing</a>
+        <a class="link" href="https://play.google.com/store/apps/details?id=com.blocknoise.drift">Open Google Play</a>
       </div>
-
-      <div class="panel hero-side">
-        <div class="stat">
-          <p class="stat-label">Positioning</p>
-          <p class="stat-value">Not a hard blocker. A gentler interruption.</p>
-        </div>
-        <div class="stat">
-          <p class="stat-label">Boundary</p>
-          <p class="stat-value">Detects supported short-video pages and helps you leave the feed.</p>
-        </div>
-        <div class="stat">
-          <p class="stat-label">Privacy</p>
-          <p class="stat-value">Runs on-device. Android system backup is disabled for first release.</p>
-        </div>
+      <div class="actions">
+        <a class="button" href="./privacy-policy/">Privacy Policy</a>
+        <a class="link" href="mailto:blocknose313@gmail.com">Contact Support</a>
       </div>
     </section>
 
-    <section class="grid">
-      <article class="panel card">
-        <h2>How it works</h2>
-        <ul>
-          <li>Lets you watch for a while first.</li>
-          <li>Shows a reminder near your limit.</li>
-          <li>Escalates into friction if you keep going.</li>
-        </ul>
-      </article>
-
-      <article class="panel card">
-        <h2>What it uses</h2>
-        <ul>
-          <li>Accessibility for supported short-video page detection.</li>
-          <li>Foreground notifications and runtime safeguards for stability.</li>
-          <li>No promise to control every app or page.</li>
-        </ul>
-      </article>
-
-      <article class="panel card">
-        <h2>Need details?</h2>
-        <p>
-          If you are reviewing the app or need release-facing compliance information, the privacy policy is the public source of truth.
-        </p>
-        <p>
-          <a href="./privacy-policy/">Open the privacy policy.</a>
-        </p>
-      </article>
+    <section class="section">
+      <h2>Closed testing install</h2>
+      <p>Drift is now in Google Play closed testing. If you have had the same short-video scrolling problem, you can try it from the current test track.</p>
+      <ol>
+        <li>Join the Google Group first: <a href="https://groups.google.com/g/drift-app">groups.google.com/g/drift-app</a></li>
+        <li>Then install from Google Play: <a href="https://play.google.com/store/apps/details?id=com.blocknoise.drift">play.google.com/store/apps/details?id=com.blocknoise.drift</a></li>
+      </ol>
+      <p class="note">If the Play link does not work, it usually means the Google Group step was not completed first.</p>
+      <p class="tiny">If you try it, I would really like to know whether it actually helps. Feedback email: <a href="mailto:blocknose313@gmail.com">blocknose313@gmail.com</a></p>
     </section>
 
-    <footer class="panel footer">
-      <span>Drift</span>
-      <span>blocknose313@gmail.com</span>
-    </footer>
-  </div>
+    <section class="section">
+      <h2>What Drift does</h2>
+      <ul>
+        <li>Identifies supported short-video pages.</li>
+        <li>Shows reminders and friction overlays when scrolling continues.</li>
+        <li>Helps perform a back action when you choose to leave.</li>
+        <li>Optionally attempts one pause gesture if you enable auto-pause.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>What Drift does not upload</h2>
+      <ul>
+        <li>Short-video page text or page content.</li>
+        <li>Chat content, typed input, or password content.</li>
+        <li>Your local rules as ad-targeting data.</li>
+      </ul>
+    </section>
+
+    <p class="footer">Support: <a href="mailto:blocknose313@gmail.com">blocknose313@gmail.com</a></p>
+  </main>
 </body>
 </html>
