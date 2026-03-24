@@ -27,7 +27,7 @@
     }
 
     main {
-      max-width: 760px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 64px 20px 80px;
     }
@@ -43,6 +43,36 @@
     }
 
     .section { margin-top: 18px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 520px;
+    }
+
+    .hero-art {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: 320px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 214, 170, 0.34), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(128, 167, 150, 0.26), transparent 32%),
+        rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(33, 49, 43, 0.08);
+      box-shadow: 0 24px 60px rgba(33, 49, 43, 0.12);
+    }
+
+    .hero-art img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
     .eyebrow {
       margin: 0 0 14px;
@@ -120,22 +150,41 @@
       margin-top: 12px;
       font-size: 15px;
     }
+
+    @media (max-width: 860px) {
+      main {
+        padding: 28px 16px 64px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        max-width: none;
+      }
+    }
   </style>
 </head>
 <body>
   <main>
     <section class="hero">
-      <p class="eyebrow">Drift</p>
-      <h1>Break the scroll, gently.</h1>
-      <p>Drift is an Android app for stepping away from short-video feeds with gentle reminders and staged friction, not hard blocking.</p>
-      <p>Core short-video detection and leave-flow handling run on-device. The current release may also send limited product analytics so the app can be improved.</p>
-      <div class="actions">
-        <a class="button" href="https://groups.google.com/g/drift-app">Join Closed Testing</a>
-        <a class="link" href="https://play.google.com/store/apps/details?id=com.blocknoise.drift">Open Google Play</a>
+      <div class="hero-copy">
+        <p class="eyebrow">Drift</p>
+        <h1>Break the scroll, gently.</h1>
+        <p>Drift is an Android app for stepping away from short-video feeds with gentle reminders and staged friction, not hard blocking.</p>
+        <p>Core short-video detection and leave-flow handling run on-device. The current release may also send limited product analytics so the app can be improved.</p>
+        <div class="actions">
+          <a class="button" href="https://groups.google.com/g/drift-app">Join Closed Testing</a>
+          <a class="link" href="https://play.google.com/store/apps/details?id=com.blocknoise.drift">Open Google Play</a>
+        </div>
+        <div class="actions">
+          <a class="button" href="./privacy-policy/">Privacy Policy</a>
+          <a class="link" href="mailto:blocknose313@gmail.com">Contact Support</a>
+        </div>
       </div>
-      <div class="actions">
-        <a class="button" href="./privacy-policy/">Privacy Policy</a>
-        <a class="link" href="mailto:blocknose313@gmail.com">Contact Support</a>
+      <div class="hero-art">
+        <img src="./assets/add-a-little-friction.png" alt="Drift mockup showing a friction popup before continuing a short-video feed">
       </div>
     </section>
 
